@@ -141,9 +141,11 @@ img {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: var(--font-sans); /* ប្តូរពី Serif មក Sans ដើម្បីឱ្យអក្សររាងបែបទំនើប */
+  font-size: 1.6rem;             /* ធ្វើឱ្យទំហំអក្សរធំជាងមុនបន្តិច */
+  font-weight: 800;              /* ឱ្យអក្សរដិតខ្លាំង */
+  letter-spacing: 1px;           /* បន្ថែមគម្លាតរវាងតួអក្សរ */
+  text-transform: uppercase;     /* ឱ្យចេញជាអក្សរធំទាំងអស់ (SENG SREANG) */
   color: var(--text-main);
 }
 
