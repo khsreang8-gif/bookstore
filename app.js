@@ -188,6 +188,144 @@ const BOOKS_DATA = [
     reviews: [
       { user: 'Zack N.', rating: 5, comment: 'High-octane cyberpunk thrill ride!' }
     ]
+  },
+  {
+    id: 'b9',
+    title: 'One Line a Day',
+    author: 'Chronicle Books',
+    category: 'mindfulness',
+    categoryLabel: 'Mindfulness',
+    price: 16.99,
+    originalPrice: 19.99,
+    rating: 4.8,
+    reviewsCount: 56,
+    cover: 'images/images.jpg',
+    tag: 'New',
+    tagClass: 'tag-new',
+    pages: 372,
+    publisher: 'Chronicle Books',
+    year: 2026,
+    isbn: '978-0811870197',
+    description: 'A five-year memory book for capturing one meaningful line from every day and looking back on the moments that shaped your life.',
+    excerpt: 'Today, I noticed...',
+    reviews: [
+      { user: 'Maya L.', rating: 5, comment: 'A simple and lovely daily ritual.' }
+    ]
+  },
+  {
+    id: 'b10',
+    title: 'No Place to Be Single',
+    author: 'Felicia Kingsley',
+    category: 'fiction',
+    categoryLabel: 'Fiction',
+    price: 14.99,
+    originalPrice: 18.99,
+    rating: 4.6,
+    reviewsCount: 43,
+    cover: 'images/images (1).jpg',
+    tag: 'Staff Pick',
+    tagClass: 'tag-new',
+    pages: 352,
+    publisher: 'Newton Compton Editori',
+    year: 2025,
+    isbn: '978-8854168321',
+    description: 'A warm, witty novel about friendship, unexpected romance, and finding your own path when everyone else seems to have a plan.',
+    excerpt: 'Sometimes the best destination is the one you never planned to visit.',
+    reviews: [
+      { user: 'Nora P.', rating: 5, comment: 'Charming, funny, and impossible to put down.' }
+    ]
+  },
+  {
+    id: 'b11',
+    title: 'Papergrid Reflections',
+    author: 'Papergrid',
+    category: 'journals',
+    categoryLabel: 'Journals',
+    price: 9.99,
+    originalPrice: 12.99,
+    rating: 4.5,
+    reviewsCount: 28,
+    cover: 'images/images (2).jpg',
+    tag: 'New',
+    tagClass: 'tag-new',
+    pages: 160,
+    publisher: 'Papergrid',
+    year: 2026,
+    isbn: '978-0000000002',
+    description: 'A bold lined journal for recording ideas, reflections, and the thoughts worth keeping close.',
+    excerpt: 'Write down the thought before it disappears.',
+    reviews: [
+      { user: 'Kai R.', rating: 5, comment: 'Beautiful design and a great everyday notebook.' }
+    ]
+  },
+  {
+    id: 'b12',
+    title: 'One Line a Day: Charcoal Edition',
+    author: 'Chronicle Books',
+    category: 'mindfulness',
+    categoryLabel: 'Mindfulness',
+    price: 16.99,
+    originalPrice: 19.99,
+    rating: 4.7,
+    reviewsCount: 34,
+    cover: 'images/images (3).jpg',
+    tag: 'Popular',
+    tagClass: '',
+    pages: 372,
+    publisher: 'Chronicle Books',
+    year: 2026,
+    isbn: '978-0811870203',
+    description: 'A refined charcoal edition of the five-year memory journal, designed for a quiet daily writing habit.',
+    excerpt: 'A small note today becomes a story tomorrow.',
+    reviews: [
+      { user: 'Ava S.', rating: 5, comment: 'The charcoal cover looks elegant on my desk.' }
+    ]
+  },
+  {
+    id: 'b13',
+    title: 'Abstract Ideas Notebook',
+    author: 'Rathna Paper',
+    category: 'journals',
+    categoryLabel: 'Journals',
+    price: 8.50,
+    originalPrice: 10.99,
+    rating: 4.4,
+    reviewsCount: 19,
+    cover: 'images/images (4).jpg',
+    tag: 'New',
+    tagClass: 'tag-new',
+    pages: 400,
+    publisher: 'Rathna Paper Products',
+    year: 2026,
+    isbn: '978-0000000004',
+    description: 'A colorful 400-page notebook for sketches, study notes, project planning, and everyday ideas.',
+    excerpt: 'Every great project starts as a page of possibilities.',
+    reviews: [
+      { user: 'Sam T.', rating: 4, comment: 'Plenty of pages and a wonderfully bright cover.' }
+    ]
+  },
+  {
+    id: 'b14',
+    title: 'Know My Name',
+    author: 'Chanel Miller',
+    category: 'memoir',
+    categoryLabel: 'Memoir',
+    price: 17.99,
+    originalPrice: 22.99,
+    rating: 4.9,
+    reviewsCount: 87,
+    cover: 'images/images (5).jpg',
+    tag: 'Bestseller',
+    tagClass: 'tag-bestseller',
+    pages: 368,
+    publisher: 'Viking',
+    year: 2019,
+    isbn: '978-0735223707',
+    description: 'A powerful memoir about identity, resilience, and reclaiming a voice in the aftermath of trauma.',
+    excerpt: 'My name is Chanel. I am not a case. I am not a victim.',
+    reviews: [
+      { user: 'Jordan W.', rating: 5, comment: 'Powerful, beautifully written, and unforgettable.' }
+    ]
   }
 ];
 
@@ -644,7 +782,7 @@ function handleCheckoutSubmit(e) {
   updateCartUI();
   closeCheckout();
 
-  showToast('Order placed successfully! Thank you for reading with Lumina Books 📚✨', 'success');
+  showToast('Order placed successfully! Thank you for reading with SENG SREANG Books 📚✨', 'success');
 }
 
 // --- Toast Notification System ---
