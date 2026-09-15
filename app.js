@@ -326,7 +326,66 @@ const BOOKS_DATA = [
     reviews: [
       { user: 'Jordan W.', rating: 5, comment: 'Powerful, beautifully written, and unforgettable.' }
     ]
-  }
+  },
+  ...Array.from({ length: 37 }, (_, index) => {
+    const imageNumber = index + 6;
+    const titlePool = [
+      'Her Hidden Journal', 'The Quiet Archive', 'Morning Letters', 'City of Lanterns',
+      'The Painted Hours', 'An Open Page', 'The Last Chapter', 'Ink & Bloom',
+      'Northbound Notes', 'The Glass Horizon', 'Midnight Margins', 'Paper Echoes',
+      'The Silent Draft', 'Dawn in Every Room', 'A Story in Bloom', 'The Velvet Line',
+      'High Tide Letters', 'The Golden Margin', 'The Weekender', 'Night Atlas',
+      'Days of Wonder', 'The Memory Shelf', 'A Place Called Elsewhere', 'Private Maps',
+      'The Summer Notebook', 'Meadow Stories', 'Field Notes', 'Under a Blue Sky',
+      'The Quiet Collection', 'Winter Margins', 'A Pocket of Light', 'Moonlit Editions',
+      'Stories by the Window', 'Everyday Wonder', 'The Bookshop Door', 'The Listening Room',
+      'The Tomorrow Journal', 'The Golden Thread'
+    ];
+    const authorPool = [
+      'Lena Hart', 'Noah Clarke', 'Priya Sol', 'Mason Vale', 'Ari Bennett',
+      'Eliza North', 'Sofia Grey', 'Darius Holt', 'Margot Lane', 'Julian Frost',
+      'Ivy Stone', 'Theo Mercer', 'Harper Quinn', 'Elliot Reed', 'Ines Rowan'
+    ];
+    const categoryMap = [
+      { category: 'fiction', categoryLabel: 'Fiction' },
+      { category: 'business', categoryLabel: 'Business & Mindset' },
+      { category: 'journals', categoryLabel: 'Journals' },
+      { category: 'mindfulness', categoryLabel: 'Mindfulness' },
+      { category: 'sci-fi', categoryLabel: 'Sci-Fi & Fantasy' }
+    ];
+    const category = categoryMap[index % categoryMap.length];
+    const title = titlePool[index % titlePool.length];
+    const author = authorPool[index % authorPool.length];
+    const price = 9 + ((index * 7) % 26);
+    const originalPrice = Number((price + 4.5).toFixed(2));
+    const rating = Number((4.2 + ((index % 7) * 0.1)).toFixed(1));
+    const reviewsCount = 18 + (index * 3);
+    const tag = index % 4 === 0 ? 'New' : index % 4 === 1 ? 'Popular' : 'Bestseller';
+    const tagClass = tag === 'Bestseller' ? 'tag-bestseller' : tag === 'New' ? 'tag-new' : '';
+    return {
+      id: `b${15 + index}`,
+      title,
+      author,
+      category: category.category,
+      categoryLabel: category.categoryLabel,
+      price: Number(price.toFixed(2)),
+      originalPrice: Number(originalPrice.toFixed(2)),
+      rating,
+      reviewsCount,
+      cover: `images/images (${imageNumber}).jpg`,
+      tag,
+      tagClass,
+      pages: 220 + ((index * 31) % 260),
+      publisher: 'Luma Press',
+      year: 2025 + (index % 2),
+      isbn: `978-0${1000000000 + index}`.slice(0, 13),
+      description: 'A thoughtfully curated title from the collection, designed for readers who love beautifully crafted stories, ideas, and inspiration.',
+      excerpt: 'Every page holds a small invitation to slow down, pay attention, and imagine more deeply.',
+      reviews: [
+        { user: 'Reader', rating: 5, comment: 'A wonderful addition to the collection.' }
+      ]
+    };
+  })
 ];
 
 // --- Application State ---
