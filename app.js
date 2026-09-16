@@ -385,6 +385,64 @@ const BOOKS_DATA = [
         { user: 'Reader', rating: 5, comment: 'A wonderful addition to the collection.' }
       ]
     };
+  }),
+  ...Array.from({ length: 29 }, (_, index) => {
+    const imageNumber = index + 43;
+    const extension = imageNumber === 71 ? 'png' : 'jpg';
+    const titlePool = [
+      'The Lantern Coast', 'Moss & Memory', 'A Winter Library', 'Letters to the Sea',
+      'Hollow Rooms', 'The Reader Below', 'In Blue Light', 'Sunlit Margins',
+      'The Quiet Harbor', 'After the Bell', 'Wildflower Notes', 'Harbor of Echoes',
+      'Moonlit Index', 'Found in Stacks', 'A Page for Tomorrow', 'The Ink Garden',
+      'Open Windows', 'Paper Sky', 'The River Cabinet', 'Quiet Light',
+      'Gilt & Grain', 'Chapters in Stone', 'A House of Stories', 'The Last Lantern',
+      'Quiet At Noon', 'The Tides of Winter', 'Lantern Journal', 'Nest of Ideas',
+      'Tomorrow on the Shelf', 'The Golden Fold'
+    ];
+    const authorPool = [
+      'Marin Vale', 'Bea Winters', 'Theo Rowan', 'June Calder', 'Naomi Vale',
+      'Eden Cliff', 'Cora Finch', 'Lucas Hart', 'Mila Snow', 'Nico Reed',
+      'Leah Pike', 'Milo Gray', 'Ada Rowe', 'Silas Bloom', 'Vera Moss'
+    ];
+    const categoryMap = [
+      { category: 'fiction', categoryLabel: 'Fiction' },
+      { category: 'business', categoryLabel: 'Business & Mindset' },
+      { category: 'journals', categoryLabel: 'Journals' },
+      { category: 'mindfulness', categoryLabel: 'Mindfulness' },
+      { category: 'sci-fi', categoryLabel: 'Sci-Fi & Fantasy' }
+    ];
+    const category = categoryMap[index % categoryMap.length];
+    const title = titlePool[index % titlePool.length];
+    const author = authorPool[index % authorPool.length];
+    const price = 10 + ((index * 5) % 21);
+    const originalPrice = Number((price + 3.5).toFixed(2));
+    const rating = Number((4.3 + ((index % 6) * 0.1)).toFixed(1));
+    const reviewsCount = 21 + (index * 2);
+    const tag = index % 5 === 0 ? 'New' : index % 5 === 1 ? 'Popular' : 'Bestseller';
+    const tagClass = tag === 'Bestseller' ? 'tag-bestseller' : tag === 'New' ? 'tag-new' : '';
+    return {
+      id: `b${52 + index}`,
+      title,
+      author,
+      category: category.category,
+      categoryLabel: category.categoryLabel,
+      price: Number(price.toFixed(2)),
+      originalPrice: Number(originalPrice.toFixed(2)),
+      rating,
+      reviewsCount,
+      cover: `images/images (${imageNumber}).${extension}`,
+      tag,
+      tagClass,
+      pages: 180 + ((index * 29) % 260),
+      publisher: 'Northline Books',
+      year: 2026,
+      isbn: `978-1${(100000000 + index).toString().padStart(9, '0')}`,
+      description: 'A carefully selected addition to the shelves, blending standout storytelling, practical insight, and beautifully visual design.',
+      excerpt: 'Some books feel like a place you can return to forever, and this is one of them.',
+      reviews: [
+        { user: 'Reader', rating: 5, comment: 'A fresh and memorable pick from the collection.' }
+      ]
+    };
   })
 ];
 
