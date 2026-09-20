@@ -443,6 +443,57 @@ const BOOKS_DATA = [
         { user: 'Reader', rating: 5, comment: 'A fresh and memorable pick from the collection.' }
       ]
     };
+  }),
+  ...Array.from({ length: 10 }, (_, index) => {
+    const imageNumber = index + 71;
+    const titlePool = [
+      'Paperbound Dawn', 'Cape of Glass', 'Night Bloom Library', 'Quiet Fields',
+      'Woven in Gold', 'The Orchard Archive', 'Twilight Catalog', 'Folded Light',
+      'Letters in Blue', 'The Fern Index'
+    ];
+    const authorPool = [
+      'Clara Hume', 'Alex Rowe', 'Mira Voss', 'Jon Wren', 'Sasha Bloom',
+      'Emery Lane', 'Tessa Ford', 'Iris Stone', 'Nolan Pike', 'Gwen Hart'
+    ];
+    const categoryMap = [
+      { category: 'fiction', categoryLabel: 'Fiction' },
+      { category: 'business', categoryLabel: 'Business & Mindset' },
+      { category: 'journals', categoryLabel: 'Journals' },
+      { category: 'mindfulness', categoryLabel: 'Mindfulness' },
+      { category: 'sci-fi', categoryLabel: 'Sci-Fi & Fantasy' }
+    ];
+    const category = categoryMap[index % categoryMap.length];
+    const title = titlePool[index % titlePool.length];
+    const author = authorPool[index % authorPool.length];
+    const price = 13 + ((index * 4) % 17);
+    const originalPrice = Number((price + 4.5).toFixed(2));
+    const rating = Number((4.4 + ((index % 5) * 0.1)).toFixed(1));
+    const reviewsCount = 24 + (index * 2);
+    const tag = index % 4 === 0 ? 'New' : index % 4 === 1 ? 'Popular' : 'Bestseller';
+    const tagClass = tag === 'Bestseller' ? 'tag-bestseller' : tag === 'New' ? 'tag-new' : '';
+    return {
+      id: `b${81 + index}`,
+      title,
+      author,
+      category: category.category,
+      categoryLabel: category.categoryLabel,
+      price: Number(price.toFixed(2)),
+      originalPrice: Number(originalPrice.toFixed(2)),
+      rating,
+      reviewsCount,
+      cover: `images/images (${imageNumber}).jpg`,
+      tag,
+      tagClass,
+      pages: 200 + ((index * 23) % 190),
+      publisher: 'Northline Books',
+      year: 2026,
+      isbn: `978-2${(100000000 + index).toString().padStart(9, '0')}`,
+      description: 'A final curated selection for readers who love the tactile beauty of a well-made cover and a story worth revisiting.',
+      excerpt: 'What begins as a single page often becomes a place to return for years.',
+      reviews: [
+        { user: 'Reader', rating: 5, comment: 'Lovely cover and a memorable reading experience.' }
+      ]
+    };
   })
 ];
 
