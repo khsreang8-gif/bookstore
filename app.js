@@ -494,6 +494,55 @@ const BOOKS_DATA = [
         { user: 'Reader', rating: 5, comment: 'Lovely cover and a memorable reading experience.' }
       ]
     };
+  }),
+  ...Array.from({ length: 5 }, (_, index) => {
+    const imageNumber = index + 81;
+    const titlePool = [
+      'The Count of Morning', 'Leaning into Light', 'Paper Starlight', 'Garden of Quiet',
+      'The Blue Hour Archive'
+    ];
+    const authorPool = [
+      'Nina Hart', 'Theo Lane', 'Mara Fields', 'Iris Cole', 'Soren Vale'
+    ];
+    const categoryMap = [
+      { category: 'fiction', categoryLabel: 'Fiction' },
+      { category: 'business', categoryLabel: 'Business & Mindset' },
+      { category: 'journals', categoryLabel: 'Journals' },
+      { category: 'mindfulness', categoryLabel: 'Mindfulness' },
+      { category: 'sci-fi', categoryLabel: 'Sci-Fi & Fantasy' }
+    ];
+    const category = categoryMap[index % categoryMap.length];
+    const title = titlePool[index % titlePool.length];
+    const author = authorPool[index % authorPool.length];
+    const price = 12 + ((index * 5) % 18);
+    const originalPrice = Number((price + 3.5).toFixed(2));
+    const rating = Number((4.5 + ((index % 4) * 0.1)).toFixed(1));
+    const reviewsCount = 28 + (index * 2);
+    const tag = index % 3 === 0 ? 'New' : 'Bestseller';
+    const tagClass = tag === 'Bestseller' ? 'tag-bestseller' : 'tag-new';
+    return {
+      id: `b${91 + index}`,
+      title,
+      author,
+      category: category.category,
+      categoryLabel: category.categoryLabel,
+      price: Number(price.toFixed(2)),
+      originalPrice: Number(originalPrice.toFixed(2)),
+      rating,
+      reviewsCount,
+      cover: `images/images (${imageNumber}).jpg`,
+      tag,
+      tagClass,
+      pages: 190 + ((index * 17) % 160),
+      publisher: 'Northline Books',
+      year: 2026,
+      isbn: `978-3${(100000000 + index).toString().padStart(9, '0')}`,
+      description: 'A final standout selection with thoughtful design, strong storytelling, and a visual identity that shines on the shelf.',
+      excerpt: 'There is a quiet kind of magic in choosing a book that feels made just for you.',
+      reviews: [
+        { user: 'Reader', rating: 5, comment: 'Exactly the kind of beautiful, inspiring addition I wanted.' }
+      ]
+    };
   })
 ];
 
