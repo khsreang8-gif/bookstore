@@ -591,6 +591,54 @@ const BOOKS_DATA = [
         { user: 'Reader', rating: 5, comment: 'A beautiful ending to the collection.' }
       ]
     };
+  }),
+  ...Array.from({ length: 5 }, (_, index) => {
+    const imageNumber = index + 91;
+    const titlePool = [
+      'Keepsake Weather', 'Soft Horizons', 'Silver Paper', 'Night Index', 'The Last Chapter House'
+    ];
+    const authorPool = [
+      'Lena Pike', 'Nolan Ash', 'Sarah Vale', 'Miles Gray', 'June Rowan'
+    ];
+    const categoryMap = [
+      { category: 'fiction', categoryLabel: 'Fiction' },
+      { category: 'business', categoryLabel: 'Business & Mindset' },
+      { category: 'journals', categoryLabel: 'Journals' },
+      { category: 'mindfulness', categoryLabel: 'Mindfulness' },
+      { category: 'sci-fi', categoryLabel: 'Sci-Fi & Fantasy' }
+    ];
+    const category = categoryMap[index % categoryMap.length];
+    const title = titlePool[index % titlePool.length];
+    const author = authorPool[index % authorPool.length];
+    const price = 13 + ((index * 4) % 15);
+    const originalPrice = Number((price + 4.5).toFixed(2));
+    const rating = Number((4.7 + ((index % 2) * 0.1)).toFixed(1));
+    const reviewsCount = 32 + (index * 2);
+    const tag = index % 2 === 0 ? 'Bestseller' : 'New';
+    const tagClass = tag === 'Bestseller' ? 'tag-bestseller' : 'tag-new';
+    return {
+      id: `b${101 + index}`,
+      title,
+      author,
+      category: category.category,
+      categoryLabel: category.categoryLabel,
+      price: Number(price.toFixed(2)),
+      originalPrice: Number(originalPrice.toFixed(2)),
+      rating,
+      reviewsCount,
+      cover: `images/images (${imageNumber}).jpg`,
+      tag,
+      tagClass,
+      pages: 200 + ((index * 15) % 180),
+      publisher: 'Northline Books',
+      year: 2026,
+      isbn: `978-5${(100000000 + index).toString().padStart(9, '0')}`,
+      description: 'A final, polished selection for readers who value beautiful design, thoughtful stories, and a memorable shelf presence.',
+      excerpt: 'The right book can turn an ordinary day into a quiet little adventure.',
+      reviews: [
+        { user: 'Reader', rating: 5, comment: 'A beautiful final addition to the collection.' }
+      ]
+    };
   })
 ];
 
