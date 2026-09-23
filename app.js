@@ -543,6 +543,54 @@ const BOOKS_DATA = [
         { user: 'Reader', rating: 5, comment: 'Exactly the kind of beautiful, inspiring addition I wanted.' }
       ]
     };
+  }),
+  ...Array.from({ length: 5 }, (_, index) => {
+    const imageNumber = index + 86;
+    const titlePool = [
+      'The Long Room', 'Quiet Fences', 'A Map of Light', 'Small Blue Notes', 'Evening Atlas'
+    ];
+    const authorPool = [
+      'Ruth Morrow', 'Sami Vale', 'Kellan Frost', 'Eva Shaw', 'Noah Stone'
+    ];
+    const categoryMap = [
+      { category: 'fiction', categoryLabel: 'Fiction' },
+      { category: 'business', categoryLabel: 'Business & Mindset' },
+      { category: 'journals', categoryLabel: 'Journals' },
+      { category: 'mindfulness', categoryLabel: 'Mindfulness' },
+      { category: 'sci-fi', categoryLabel: 'Sci-Fi & Fantasy' }
+    ];
+    const category = categoryMap[index % categoryMap.length];
+    const title = titlePool[index % titlePool.length];
+    const author = authorPool[index % authorPool.length];
+    const price = 12 + ((index * 6) % 16);
+    const originalPrice = Number((price + 4).toFixed(2));
+    const rating = Number((4.6 + ((index % 3) * 0.1)).toFixed(1));
+    const reviewsCount = 30 + (index * 3);
+    const tag = index % 2 === 0 ? 'New' : 'Bestseller';
+    const tagClass = tag === 'Bestseller' ? 'tag-bestseller' : 'tag-new';
+    return {
+      id: `b${96 + index}`,
+      title,
+      author,
+      category: category.category,
+      categoryLabel: category.categoryLabel,
+      price: Number(price.toFixed(2)),
+      originalPrice: Number(originalPrice.toFixed(2)),
+      rating,
+      reviewsCount,
+      cover: `images/images (${imageNumber}).jpg`,
+      tag,
+      tagClass,
+      pages: 210 + ((index * 13) % 170),
+      publisher: 'Northline Books',
+      year: 2026,
+      isbn: `978-4${(100000000 + index).toString().padStart(9, '0')}`,
+      description: 'A thoughtful final addition to the collection, chosen for readers who love beautiful covers and reflective reads.',
+      excerpt: 'The best stories do not just entertain them; they quietly change the way you see the world.',
+      reviews: [
+        { user: 'Reader', rating: 5, comment: 'A beautiful ending to the collection.' }
+      ]
+    };
   })
 ];
 
