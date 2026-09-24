@@ -639,6 +639,54 @@ const BOOKS_DATA = [
         { user: 'Reader', rating: 5, comment: 'A beautiful final addition to the collection.' }
       ]
     };
+  }),
+  ...Array.from({ length: 5 }, (_, index) => {
+    const imageNumber = index + 96;
+    const titlePool = [
+      'The Open Shelf', 'A House of Blue', 'Marginalia', 'The Quiet Season', 'Atlas of Small Things'
+    ];
+    const authorPool = [
+      'Mara North', 'Eli Rowan', 'Clara Moss', 'Jon Bell', 'Willa Hart'
+    ];
+    const categoryMap = [
+      { category: 'fiction', categoryLabel: 'Fiction' },
+      { category: 'business', categoryLabel: 'Business & Mindset' },
+      { category: 'journals', categoryLabel: 'Journals' },
+      { category: 'mindfulness', categoryLabel: 'Mindfulness' },
+      { category: 'sci-fi', categoryLabel: 'Sci-Fi & Fantasy' }
+    ];
+    const category = categoryMap[index % categoryMap.length];
+    const title = titlePool[index % titlePool.length];
+    const author = authorPool[index % authorPool.length];
+    const price = 14 + ((index * 5) % 14);
+    const originalPrice = Number((price + 4).toFixed(2));
+    const rating = Number((4.5 + ((index % 3) * 0.1)).toFixed(1));
+    const reviewsCount = 34 + (index * 2);
+    const tag = index % 2 === 0 ? 'New' : 'Bestseller';
+    const tagClass = tag === 'Bestseller' ? 'tag-bestseller' : 'tag-new';
+    return {
+      id: `b${106 + index}`,
+      title,
+      author,
+      category: category.category,
+      categoryLabel: category.categoryLabel,
+      price: Number(price.toFixed(2)),
+      originalPrice: Number(originalPrice.toFixed(2)),
+      rating,
+      reviewsCount,
+      cover: `images/images (${imageNumber}).jpg`,
+      tag,
+      tagClass,
+      pages: 220 + ((index * 19) % 150),
+      publisher: 'Northline Books',
+      year: 2026,
+      isbn: `978-6${(100000000 + index).toString().padStart(9, '0')}`,
+      description: 'A carefully chosen addition to the collection, made for readers who enjoy thoughtful writing and beautifully presented books.',
+      excerpt: 'A good book leaves a little more light on the page than it found there.',
+      reviews: [
+        { user: 'Reader', rating: 5, comment: 'A lovely addition to the bookstore collection.' }
+      ]
+    };
   })
 ];
 
