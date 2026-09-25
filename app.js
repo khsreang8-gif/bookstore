@@ -687,6 +687,54 @@ const BOOKS_DATA = [
         { user: 'Reader', rating: 5, comment: 'A lovely addition to the bookstore collection.' }
       ]
     };
+  }),
+  ...Array.from({ length: 5 }, (_, index) => {
+    const imageNumber = index + 101;
+    const titlePool = [
+      'The Quiet Harbor', 'Ink & Weather', 'Paper Lanterns', 'The Blue Index', 'Route of Light'
+    ];
+    const authorPool = [
+      'Ari Wells', 'Noa Finch', 'Leah Morrow', 'Theo Bell', 'Mila Stone'
+    ];
+    const categoryMap = [
+      { category: 'fiction', categoryLabel: 'Fiction' },
+      { category: 'business', categoryLabel: 'Business & Mindset' },
+      { category: 'journals', categoryLabel: 'Journals' },
+      { category: 'mindfulness', categoryLabel: 'Mindfulness' },
+      { category: 'sci-fi', categoryLabel: 'Sci-Fi & Fantasy' }
+    ];
+    const category = categoryMap[index % categoryMap.length];
+    const title = titlePool[index % titlePool.length];
+    const author = authorPool[index % authorPool.length];
+    const price = 15 + ((index * 4) % 16);
+    const originalPrice = Number((price + 4).toFixed(2));
+    const rating = Number((4.6 + ((index % 2) * 0.1)).toFixed(1));
+    const reviewsCount = 36 + (index * 2);
+    const tag = index % 2 === 0 ? 'Bestseller' : 'New';
+    const tagClass = tag === 'Bestseller' ? 'tag-bestseller' : 'tag-new';
+    return {
+      id: `b${111 + index}`,
+      title,
+      author,
+      category: category.category,
+      categoryLabel: category.categoryLabel,
+      price: Number(price.toFixed(2)),
+      originalPrice: Number(originalPrice.toFixed(2)),
+      rating,
+      reviewsCount,
+      cover: `images/images (${imageNumber}).jpg`,
+      tag,
+      tagClass,
+      pages: 215 + ((index * 17) % 165),
+      publisher: 'Northline Books',
+      year: 2026,
+      isbn: `978-7${(100000000 + index).toString().padStart(9, '0')}`,
+      description: 'An elegant final chapter in the collection for readers who love warm design and memorable stories.',
+      excerpt: 'Good books have a way of inviting you back, even after the last page is turned.',
+      reviews: [
+        { user: 'Reader', rating: 5, comment: 'A beautiful finishing touch to the set.' }
+      ]
+    };
   })
 ];
 
