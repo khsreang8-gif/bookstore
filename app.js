@@ -735,6 +735,54 @@ const BOOKS_DATA = [
         { user: 'Reader', rating: 5, comment: 'A beautiful finishing touch to the set.' }
       ]
     };
+  }),
+  ...Array.from({ length: 5 }, (_, index) => {
+    const imageNumber = index + 106;
+    const titlePool = [
+      'The Last Glass', 'Paper Moon', 'Quiet Wing', 'Signal in Bloom', 'Spring Atlas'
+    ];
+    const authorPool = [
+      'Ada Frost', 'Leo Pike', 'Nia Cross', 'Owen Vale', 'Sora Bell'
+    ];
+    const categoryMap = [
+      { category: 'fiction', categoryLabel: 'Fiction' },
+      { category: 'business', categoryLabel: 'Business & Mindset' },
+      { category: 'journals', categoryLabel: 'Journals' },
+      { category: 'mindfulness', categoryLabel: 'Mindfulness' },
+      { category: 'sci-fi', categoryLabel: 'Sci-Fi & Fantasy' }
+    ];
+    const category = categoryMap[index % categoryMap.length];
+    const title = titlePool[index % titlePool.length];
+    const author = authorPool[index % authorPool.length];
+    const price = 16 + ((index * 4) % 13);
+    const originalPrice = Number((price + 4).toFixed(2));
+    const rating = Number((4.7 + ((index % 2) * 0.1)).toFixed(1));
+    const reviewsCount = 38 + (index * 2);
+    const tag = index % 2 === 0 ? 'New' : 'Bestseller';
+    const tagClass = tag === 'Bestseller' ? 'tag-bestseller' : 'tag-new';
+    return {
+      id: `b${116 + index}`,
+      title,
+      author,
+      category: category.category,
+      categoryLabel: category.categoryLabel,
+      price: Number(price.toFixed(2)),
+      originalPrice: Number(originalPrice.toFixed(2)),
+      rating,
+      reviewsCount,
+      cover: `images/images (${imageNumber}).jpg`,
+      tag,
+      tagClass,
+      pages: 225 + ((index * 14) % 145),
+      publisher: 'Northline Books',
+      year: 2026,
+      isbn: `978-8${(100000000 + index).toString().padStart(9, '0')}`,
+      description: 'A final polished entry for readers who enjoy a visual statement on the shelf and a story that lingers beyond the last page.',
+      excerpt: 'There is a kind of quiet wonder in choosing a book that feels like it was waiting for you.',
+      reviews: [
+        { user: 'Reader', rating: 5, comment: 'A memorable closing piece for the collection.' }
+      ]
+    };
   })
 ];
 
