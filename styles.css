@@ -137,16 +137,28 @@ img {
   gap: 1.5rem;
 }
 
+/* .logo { 
+  display: flex;
+  align-items: center;
+
 .logo {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--font-sans); /* ប្តូរពី Serif មក Sans ដើម្បីឱ្យអក្សររាងបែបទំនើប */
-  font-size: 1.6rem;             /* ធ្វើឱ្យទំហំអក្សរធំជាងមុនបន្តិច */
-  font-weight: 800;              /* ឱ្យអក្សរដិតខ្លាំង */
-  letter-spacing: 1px;           /* បន្ថែមគម្លាតរវាងតួអក្សរ */
-  text-transform: uppercase;     /* ឱ្យចេញជាអក្សរធំទាំងអស់ (SENG SREANG) */
+  font-family: var(--font-sans);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   color: var(--text-main);
+  text-decoration: none;
+}
+
+.logo-image {
+  width: min(100%, 400px);
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
 }
 
 .logo-icon {
@@ -162,10 +174,40 @@ img {
   box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
 }
 
+
 .logo-accent {
   color: var(--color-primary);
   font-style: italic;
+}​ */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  white-space: nowrap;
 }
+
+.logo-image {
+  width: 70px;   
+  height: 70px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.logo-accent {
+  color: var(--color-primary);
+  font-style: italic;
+  margin-left: 4px;
+} 
 
 .search-bar {
   flex: 1;
