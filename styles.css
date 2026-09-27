@@ -1320,3 +1320,11 @@ img {
     gap: 1rem;
   }
 }
+
+/* កំណត់ទំហំ Logo ធំសម្រាប់តែ Footer ខាងក្រោម */
+.footer-logo-img {
+  width: 200px;           /* អាចដាក់ 70px ទៅ 85px តាមការចូលចិត្ត */
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 0.8rem;
+}
